@@ -1,6 +1,7 @@
 jsons/trop*.json
 jsons/hs/
-
+jsons/*.json
+__pycache__/
 Python/
 *.dll
 *.exe
