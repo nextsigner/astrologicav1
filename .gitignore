@@ -5,6 +5,8 @@ Python/
 *.dll
 *.exe
 Qt/*
+QtQuick/
+QtWebEngine/
 Qt3D/
 QtWebView/
 QtQuick.2/
