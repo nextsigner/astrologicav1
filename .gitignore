@@ -4,6 +4,7 @@ build_linux/
 jsons/trop*.json
 jsons/hs/
 jsons/*.json
+doc/
 __pycache__/
 Python/
 *.dll
@@ -12,6 +13,10 @@ Qt/*
 QtQuick/
 QtWebEngine/
 Qt3D/
+QtCanvas3D/
+QtQmlModels.2/
+QtGraphicalEffects/
+QtMultimedia/
 QtWebView/
 QtQuick.2/
 audio/
