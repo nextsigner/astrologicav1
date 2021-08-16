@@ -1,0 +1,16 @@
+{
+    "signos":{
+        "s1":{"h":"texto signo 1"},
+        "s2":{"h":"texto signo 2"},
+        "s3":{"h":"texto signo 3"},
+        "s4":{"h":"texto signo 4"},
+        "s5":{"h":"texto signo 5"},
+        "s6":{"h":"texto signo 6"},
+        "s7":{"h":"texto signo 7"},
+        "s8":{"h":"texto signo 8"},
+        "s9":{"h":"texto signo 9"},
+        "s10":{"h":"texto signo 10"},
+        "s11":{"h":"texto signo 11"},
+        "s12":{"h":"texto signo 12"}
+    }
+}

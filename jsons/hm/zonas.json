@@ -1,0 +1,7 @@
+{
+    "zonas":{
+        "z1":{"id":"tropcap", "nom":"Personas Nacidas cerca del Trópico de Capricornio", "des":"Bolivia, Chile, Paraguay, Uruguay, Ecuador, Sur de Perú, Argentina, Sur de Brasil", "lat": -23.43806, "lon":0, "alt":0, "gmt": 0},
+        "z2":{"id":"tropcan", "nom":"Personas Nacidas cerca del Trópico de Cáncer", "des":"México, España, Puerto Rico", "lat":23.43722, "lon":0, "alt":0, "gmt": 0},
+        "z3":{"id":"tropecu", "nom":"Personas Nacidas cerca del Trópico de Ecuador", "des":"Venezuela, Cuba, Nicaragua, Guatemala, Norte de Perú, Colombia, Centro y Norte de Brasil", "lat":0, "lon":0, "alt":0, "gmt": 0}
+    }
+}

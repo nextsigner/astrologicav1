@@ -1,0 +1,16 @@
+{
+    "signos":{
+        "s1":{"h":"Todavía no hay ningún pronóstico cargado para Aries"},
+        "s2":{"h":"Todavía no hay ningún pronóstico cargado para Tauro"},
+        "s3":{"h":"Todavía no hay ningún pronóstico cargado para Géminis"},
+        "s4":{"h":"Todavía no hay ningún pronóstico cargado para Cáncer"},
+        "s5":{"h":"Todavía no hay ningún pronóstico cargado para Leo"},
+        "s6":{"h":"Todavía no hay ningún pronóstico cargado para Virgo"},
+        "s7":{"h":"Todavía no hay ningún pronóstico cargado para Libra"},
+        "s8":{"h":"Todavía no hay ningún pronóstico cargado para Escorpio"},
+        "s9":{"h":"Todavía no hay ningún pronóstico cargado para Sagitario"},
+        "s10":{"h":"Todavía no hay ningún pronóstico cargado para Capricornio"},
+        "s11":{"h":"Todavía no hay ningún pronóstico cargado para Acuario"},
+        "s12":{"h":"Todavía no hay ningún pronóstico cargado para Piscis"}
+    }
+}
