@@ -1,8 +1,7 @@
 [Desktop Entry]
-Categories=Qt;Settings;
 Type=Application
-Name=astrologica_v0.1
+Name=AstroLogica
 Exec=AppRun %F
 Icon=icon
-Comment=Unik Qml Engine by Unikode.org
+Comment=AstroLogica by nextsigner
 Terminal=true

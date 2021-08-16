@@ -1,3 +1,6 @@
+build_linux/
+!build_linux/default.desktop
+!build_linux/icon.png
 jsons/trop*.json
 jsons/hs/
 jsons/*.json
