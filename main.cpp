@@ -80,8 +80,19 @@ int main(int argc, char *argv[])
         return 0;
     }
 #endif
-
-    QDir::setCurrent(qApp->applicationDirPath());
+    QByteArray mainFolder;
+    mainFolder.append(qApp->applicationDirPath().toUtf8());
+    qDebug()<<"Argv 1: "<<argv[1];
+    if(QString(argv[1]).contains("-folder=")){
+        QStringList sl1=QString(argv[1]).split("-folder=");
+        QDir::setCurrent(sl1.at(1));
+        qDebug()<<"Set current folder from -folder: "<<sl1.at(1);
+        mainFolder="";
+        mainFolder.append(sl1.at(1).toUtf8());
+    }else{
+        QDir::setCurrent(qApp->applicationDirPath());
+    }
+    qDebug()<<"Current folder: "<<QDir::currentPath();
 
     QString iconPath=qApp->applicationDirPath();
     iconPath.append("/resources/imgs/logo.png");
@@ -94,7 +105,7 @@ int main(int argc, char *argv[])
 #ifdef Q_OS_WIN
     mainPath.append("file:///");
 #endif
-    mainPath.append(qApp->applicationDirPath().toUtf8());
+    mainPath.append(mainFolder);
     mainPath.append("/main.qml");
     QQmlApplicationEngine engine;
     //const QUrl url(QStringLiteral(mainPath));

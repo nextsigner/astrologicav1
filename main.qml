@@ -112,6 +112,8 @@ AppWin {
         xDataBar.currentGmtText=''+currentGmt
         tReload.restart()
     }
+    FontLoader {name: "FontAwesome";source: "qrc:/resources/fontawesome-webfont.ttf";}
+    FontLoader {name: "ArialMdm";source: "qrc:/resources/ArialMdm.ttf";}
     Settings{
         id: apps
         fileName:'astrologica_'+Qt.platform.os+'.cfg'

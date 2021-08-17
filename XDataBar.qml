@@ -73,8 +73,8 @@ Rectangle {
             Repeater{
                 id: rep
                 Rectangle{
-                    width: txtRow.contentWidth+app.fs*0.1
-                    height: txtRow.contentHeight+app.fs*0.1
+                    width: txtRow.contentWidth+app.fs*0.2
+                    height: txtRow.contentHeight+app.fs*0.2
                     color: 'black'
                     border.width: 1
                     border.color: 'white'
@@ -82,7 +82,8 @@ Rectangle {
                     Text{
                         id: txtRow
                         text: modelData//.replace(/_/g, ' ')
-                        font.pixelSize: r.height*0.5
+                        font.pixelSize: r.height*0.35
+                        //font.family: "ArialMdm"
                         color: 'white'
                         anchors.centerIn: parent
                     }
