@@ -1,7 +1,11 @@
-QT += quick sql svg
+QT += qml quick sql websockets svg serialport
 CONFIG += c++11
 
 TARGET=astrologica
+
+windows{
+    include(windows.pri)
+}
 
 linux{
     include(linux.pri)
@@ -42,12 +46,7 @@ HEADERS += \
     unik.h \
     unikqprocess.h
 
-INCLUDEPATH += $$PWD/quazip
-LIBS += -lz
-INCLUDEPATH+=/usr/local/zlib/include
-HEADERS += $$PWD/quazip/*.h
-SOURCES += $$PWD/quazip/*.cpp
-SOURCES += $$PWD/quazip/*.c
+
 
 DISTFILES += \
     linux.pri

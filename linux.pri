@@ -29,9 +29,13 @@ EXTRA_BINFILES += $$PWD/comps
 EXTRA_BINFILES += $$PWD/resources
 EXTRA_BINFILES += $$PWD/py
 EXTRA_BINFILES_WIN = $${EXTRA_BINFILES}
-#EXTRA_BINFILES_WIN ~= s,/,\\,g
-#DESTDIR = $$replace(PWD, /unik,/unik/build_win_32/version)
-#DESTDIR_WIN ~= s,/,\\,g
 for(FILE,EXTRA_BINFILES_WIN){
         QMAKE_POST_LINK +=$$quote(cp -r $${FILE} $${DESTDIR}$$escape_expand(\n\t))
 }
+
+INCLUDEPATH += $$PWD/quazip
+LIBS += -lz
+INCLUDEPATH+=/usr/local/zlib/include
+HEADERS += $$PWD/quazip/*.h
+SOURCES += $$PWD/quazip/*.cpp
+SOURCES += $$PWD/quazip/*.c
