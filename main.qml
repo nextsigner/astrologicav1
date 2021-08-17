@@ -19,7 +19,7 @@ AppWin {
     height: Screen.height
     minimumWidth: Screen.desktopAvailableWidth-app.fs*4
     minimumHeight: Screen.desktopAvailableHeight-app.fs*4
-    color: 'black'
+    color: apps.enableBackgroundColor?apps.backgroundColor:'black'
     title: 'Astrológica '+version
     property bool dev: false
     property string version: '1.0'
@@ -114,9 +114,15 @@ AppWin {
     }
     FontLoader {name: "FontAwesome";source: "qrc:/resources/fontawesome-webfont.ttf";}
     FontLoader {name: "ArialMdm";source: "qrc:/resources/ArialMdm.ttf";}
+    FontLoader {name: "TypeWriter";source: "qrc:/resources/typewriter.ttf";}
     Settings{
         id: apps
         fileName:'astrologica_'+Qt.platform.os+'.cfg'
+        property bool enableBackgroundColor: false
+        property string backgroundColor: "black"
+        property string fontFamily: "ArialMdm"
+        property string fontColor: "white"
+        property int fontSize: app.fs*0.5
         property string url: ''
         property bool showTimes: false
         property bool showSWEZ: true
@@ -127,6 +133,9 @@ AppWin {
         property bool lt:false
         property string jsonsFolder
         Component.onCompleted: {
+            //fontSize=app.fs*0.5
+            //fontColor='red'
+            //backgroundColor='yellow'
             if(!jsonsFolder){
                 console.log('Seteando jsonsFolder...')
                 let docFolder=unik.getPath(3)
@@ -165,11 +174,11 @@ AppWin {
             border.color: 'white'
             visible: false
             anchors.centerIn: parent
-            Text {
+            XText {
                 id: txtPD
                 text: 'Procesando datos...'
-                font.pixelSize: app.fs
-                color: 'white'
+                //font.pixelSize: app.fs
+                //color: 'white'
                 anchors.centerIn: parent
             }
             MouseArea{
@@ -231,6 +240,12 @@ AppWin {
         XInfoData{id: xInfoData}
     }
     Init{longAppName: 'Astrológica'; folderName: 'astrologica'}
+    Comps.XSelectColor{
+        id: xSelectColor
+        width: app.fs*8
+        height: app.fs*8
+        c: 'backgroundColor'
+    }
     Component.onCompleted: {
         if(Qt.application.arguments.indexOf('-dev')>=0){
             app.dev=true

@@ -134,7 +134,7 @@ Rectangle {
             color: index===lv.currentIndex?'white':'black'
             border.width: index===lv.currentIndex?4:2
             border.color: 'white'
-            Text {
+            XText {
                 id: txtData
                 text: dato
                 font.pixelSize: app.fs*0.5
@@ -160,7 +160,7 @@ Rectangle {
                 anchors.rightMargin: app.fs*0.3
                 anchors.top: parent.top
                 anchors.topMargin: app.fs*0.3
-                Text {
+                XText {
                     id: txtDelete
                     text: 'X'
                     font.pixelSize: app.fs*0.25

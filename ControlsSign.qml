@@ -81,7 +81,7 @@ Rectangle {
             color: index===lv.currentIndex?'white':'black'
             border.width: index===lv.currentIndex?4:2
             border.color: 'white'
-            Text {
+            XText {
                 id: txtData
                 text: dato
                 font.pixelSize: app.fs*0.5

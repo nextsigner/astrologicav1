@@ -4,7 +4,7 @@ Item {
     id: r
     width: app.fs*4
     height: width
-    y: parent.height*0.5-r.width*0.5
+    y: parent.height*0.5-r.width*0.5+sweg.verticalOffSet
     x: parent.width*0.5-r.height*0.5
     property real zoom: 2.0
     property alias image:img

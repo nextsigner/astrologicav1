@@ -13,40 +13,40 @@ Rectangle{
         id: row
         anchors.centerIn: parent
         spacing: app.fs*0.25
-        Text {
+        XText {
             text: '<b>State:</b> '+panelDataBodies.state
             font.pixelSize: r.height*0.25
             color: 'white'
         }
         Column{
-            Text {
+            XText {
                 text: '<b>Sol:</b> '+app.currentGradoSolar
                 font.pixelSize: r.height*0.25
                 color: 'white'
             }
-            Text {
+            XText {
                 text: '<b>Asc:</b> '+app.uAscDegree
                 font.pixelSize: r.height*0.25
                 color: 'white'
             }
-            Text {
+            XText {
                 text: '<b>Mc:</b> '+app.uMcDegree
                 font.pixelSize: r.height*0.25
                 color: 'white'
             }
         }
-        Text {
+        XText {
             text: '<b>Mod:</b> '+app.mod
             font.pixelSize: r.height*0.5
             color: 'white'
         }
-        Text {
+        XText {
             id: txtStatus
             text: '<b>SWEG:</b> '+sweg.state
             font.pixelSize: r.height*0.5
             color: 'white'
         }
-        Text {
+        XText {
             text: '<b>LT:</b> '+(xLayerTouch.visible?'SI':'NO')
             font.pixelSize: app.fs*0.5
             color: 'white'

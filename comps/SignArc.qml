@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import QtGraphicalEffects 1.0
+import "../"
 
 Item {
     id: r
@@ -123,7 +124,7 @@ Item {
             }
             Column{
                 anchors.centerIn: parent
-                Text {
+                XText {
                     text: '<b>'+app.signos[r.n - 1]+'</b>'
                     font.pixelSize: r.w*0.5
                     anchors.horizontalCenter: parent.horizontalCenter

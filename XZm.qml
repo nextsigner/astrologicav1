@@ -123,7 +123,7 @@ Rectangle{
             radius: app.fs*0.1
             anchors.horizontalCenter: parent.horizontalCenter
             //anchors.verticalCenter: parent.verticalCenter
-            Text {
+            XText {
                 id: txtData
                 //text: (r.is!==-1?'<b>Ascendente '+app.signos[r.is]+'</b><br />':'')+dato
                 font.pixelSize: app.fs*0.35
@@ -224,7 +224,7 @@ Rectangle{
         anchors.bottom: parent.bottom
         anchors.right: parent.right
         visible: false
-        Text {
+        XText {
             id: infoTXT
             text: '<b>LV:'+panelZonaMes.currentIndex+'<b> IS:'+r.currentIndexSign+' PLI:'+playlist.currentIndex+'</b>'
             font.pixelSize: app.fs*0.25

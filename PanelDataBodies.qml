@@ -8,9 +8,9 @@ Rectangle {
     width: parent.width
     height: parent.height
     anchors.bottom: parent.bottom
-    color: 'black'
+    color: apps.backgroundColor
     border.width: 1
-    border.color: 'white'
+    border.color: apps.fontColor
     state: 'hide'
     property alias currentIndex: lv.currentIndex
     property int currentIndexSign: -1
@@ -54,14 +54,14 @@ Rectangle {
         Rectangle{
             width: lv.width
             height: app.fs
-            color: 'black'
+            color: apps.backgroundColor
             border.width: 2
-            border.color: 'white'
-            Text {
+            border.color: apps.fontColor
+            XText {
                 text: '<b>Astrológica v1.0 by @nextsigner</b>'
                 font.pixelSize: app.fs*0.5
                 width: contentWidth
-                color: 'white'
+                //color: 'white'
                 anchors.centerIn: parent
             }
         }
@@ -103,17 +103,17 @@ Rectangle {
         Rectangle{
             width: lv.width
             height: txtData.contentHeight+app.fs*0.1
-            color: index===app.currentPlanetIndex?'white':'black'
+            color: index===app.currentPlanetIndex?apps.fontColor:apps.backgroundColor
             border.width: index===app.currentPlanetIndex?2:0
-            border.color: 'white'
-            Text {
+            border.color: apps.fontColor
+            XText {
                 id: txtData
                 text: sd
                 font.pixelSize: app.fs*0.4
                 width: parent.width-app.fs*0.2
                 wrapMode: Text.WordWrap
                 textFormat: Text.RichText
-                color: index===app.currentPlanetIndex?'black':'white'
+                color: index===app.currentPlanetIndex?apps.backgroundColor:apps.fontColor
                 anchors.centerIn: parent
             }
             MouseArea{

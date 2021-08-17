@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import QtQuick.Controls 2.0
+import "../"
 
 Item {
     id: r
@@ -16,7 +17,7 @@ Item {
         color: 'black'
         border.width: 0
         border.color: 'white'
-        Text {
+        XText {
             id: txt
             font.pixelSize: r.fs
             color: 'white'

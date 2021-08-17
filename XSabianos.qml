@@ -25,7 +25,7 @@ Rectangle {
         id: rowTit
         spacing: r.fs*0.25
         anchors.horizontalCenter: parent.horizontalCenter
-        Text {
+        XText {
             id: currentSign
             text: '<b>Simbología de los Sabianos</b> - <b>'+r.signos[r.numSign]+'</b>'
             font.pixelSize: r.fs*2
@@ -94,7 +94,7 @@ Rectangle {
             }
         }
     }
-    Text {
+    XText {
         id: currentDegree
         property string sd: '?'
         text: '<b>'+sd+'</b>'//+' ci:'+r.currentInterpreter+' ad:'+r.numDegree+' cs:'+r.numSign

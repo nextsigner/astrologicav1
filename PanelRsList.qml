@@ -47,7 +47,7 @@ Rectangle {
             border.width: 2
             border.color: txtLabelTit.focus?'red':'white'
             anchors.horizontalCenter: parent.horizontalCenter
-            Text {
+            XText {
                 id: txtLabelTit
                 text: 'Revoluciones Solares hasta los '+r.edadMaxima+' años'
                 font.pixelSize: app.fs*0.5
@@ -143,7 +143,7 @@ Rectangle {
                         border.color: 'white'
                         radius: app.fs*0.1
                         anchors.verticalCenter: parent.verticalCenter
-                        Text {
+                        XText {
                             id: txtEdad
                             width: app.fs*2
                             text: 'Desde <b>'+parseInt(index)+'</b> años\nhasta <b>'+parseInt(index +1)+'</b>\n años'
@@ -164,7 +164,7 @@ Rectangle {
                         border.color: 'white'
                         radius: app.fs*0.1
                         anchors.verticalCenter: parent.verticalCenter
-                        Text {
+                        XText {
                             id: txtData
                             //text: (itemRS.is!==-1?'<b>Ascendente '+app.signos[itemRS.is]+'</b><br />':'')+dato
                             font.pixelSize: app.fs*0.35

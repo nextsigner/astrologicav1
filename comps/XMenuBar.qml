@@ -17,6 +17,9 @@ MenuBar{
     Menu {
         title: qsTr("&Ver")
         Action { text: qsTr("&Panel Zoom"); onTriggered: apps.showSWEZ=!apps.showSWEZ; checkable: true; checked: apps.showSWEZ}
+        Action { text: qsTr("&Fondo Color de Rueda Zoodiacal"); onTriggered: apps.enableBackgroundColor=!apps.enableBackgroundColor; checkable: true; checked: apps.enableBackgroundColor}
+        Action { text: qsTr("&Definir Color de Fondo"); onTriggered: defColor('backgroundColor')}
+        Action { text: qsTr("&Definir Color de Texto"); onTriggered: defColor('fontColor')}
         Action { text: qsTr("&Decanatos"); onTriggered: apps.showDec=!apps.showDec; checkable: true; checked: apps.showDec}
     }
     Menu {
@@ -47,5 +50,9 @@ MenuBar{
         onAccepted: {
             close()
         }
+    }
+    function defColor(object){
+        xSelectColor.visible=true
+        xSelectColor.c=object
     }
 }

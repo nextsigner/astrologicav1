@@ -16,7 +16,7 @@ Item {
         Column{
             id: col
             anchors.centerIn: parent
-            Text {
+            XText {
                 id: txtDate
                 text: '<b>Fecha: </b>'+r.currentDateString
                 font.pixelSize: r.fs

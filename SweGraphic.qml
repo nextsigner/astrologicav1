@@ -6,6 +6,8 @@ Item {
     height: parent.height
     opacity: 0.0
     anchors.centerIn: parent
+    anchors.verticalCenterOffset: verticalOffSet
+    property int  verticalOffSet: xDataBar.state==='show'?sweg.fs*1.25:0
     property int fs: r.objectName==='sweg'?app.fs:app.fs*2
     property int w: fs
     property bool v: false
@@ -18,6 +20,8 @@ Item {
     property alias objEclipseCircle: eclipseCircle
     property int speedRotation: 1000
     property var aStates: ['ps', 'pc', 'pa']
+    property color backgroundColor: enableBackgroundColor?apps.backgroundColor:'transparent'
+    property bool enableBackgroundColor: apps.enableBackgroundColor
     state: aStates[0]
     states: [
         State {//PS
@@ -68,18 +72,20 @@ Item {
     ]
     onStateChanged: swegz.sweg.state=state
     Behavior on opacity{NumberAnimation{duration: 1500}}
+    Behavior on verticalOffSet{NumberAnimation{duration: app.msDesDuration}}
     Item{id: xuqp}
     Rectangle{
         id: bg
         width: parent.width*10
         height: width
-        color: 'transparent'
+        color: backgroundColor
         visible: signCircle.v
     }
     AxisCircle{id: axisCircle}
     PanelAspects{
         id: panelAspects
         anchors.bottom: parent.bottom
+        anchors.bottomMargin: verticalOffSet
         anchors.left: parent.left
         anchors.leftMargin: 0-((xApp.width-r.width)/2)+swegz.width
         visible: r.objectName==='sweg'
@@ -213,7 +219,7 @@ Item {
         swegz.sweg.objHousesCircle.currentHouse=-1
         app.currentPlanetIndex=-1
         let scorrJson=json.replace(/\n/g, '')
-        console.log('json: '+json)
+        //console.log('json: '+json)
         let j=JSON.parse(scorrJson)
         signCircle.rot=j.ph.h1.gdec
         ascMcCircle.loadJson(j)

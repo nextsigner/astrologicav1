@@ -24,7 +24,7 @@ Rectangle{
     Column{
         anchors.centerIn: r
         spacing: app.fs
-        Text {
+        XText {
             text: '<b>Cargando Nuevos Datos</b>'
             font.pixelSize: app.fs
             color: 'white'
@@ -32,7 +32,7 @@ Rectangle{
         }
         Row{
             spacing: app.fs*0.5
-            Text {
+            XText {
                 id: l1
                 text: '<b>Datos:</b>'
                 font.pixelSize: app.fs*0.5

@@ -69,7 +69,7 @@ Rectangle {
             border.width: 2
             border.color: txtLabelTit.focus?'red':'white'
             anchors.horizontalCenter: parent.horizontalCenter
-            Text {
+            XText {
                 id: txtLabelTit
                 text: r.uTit
                 font.pixelSize: app.fs*0.5

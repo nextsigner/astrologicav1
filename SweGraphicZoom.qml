@@ -32,7 +32,7 @@ Item {
     Behavior on x{enabled: app.enableAn;NumberAnimation{duration: 250}}
     Rectangle{
         anchors.fill: r
-        color: 'black'
+        color: apps.enableBackgroundColor?apps.backgroundColor:'black'
     }
     Item{
         id: xSwegZoom
@@ -55,7 +55,7 @@ Item {
 //            drag.axis: Drag.XAndYAxis
 //        }
     }
-    Text {
+    XText {
         id: info
         text: 'S:'+objSweGraphinZoom.state+' CH:'+objSweGraphinZoom.objHousesCircle.currentHouse
         font.pixelSize: app.fs

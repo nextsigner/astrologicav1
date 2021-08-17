@@ -4,10 +4,10 @@ import "./comps" as Comps
 Rectangle {
     id: r
     width: parent.width
-    height: app.fs*1.1
-    color: 'black'
+    height: rowData.height+rowData.height*0.5
+    color: apps.backgroundColor
     border.width: 1
-    border.color: 'white'
+    border.color: apps.fontColor
     property string titleData//: txtCurrentData.text
     property alias currentDateText: txtCurrentDate.text
     property alias currentGmtText: txtCurrentGmt.text
@@ -56,7 +56,7 @@ Rectangle {
             radius: width*0.5
             color: app.fileData===app.currentData?'gray':'red'
             border.width: 2
-            border.color: 'white'
+            border.color: apps.fontColor
             anchors.verticalCenter: parent.verticalCenter
             y:(parent.height-height)/2
             MouseArea{
@@ -68,25 +68,27 @@ Rectangle {
             }
         }
         Row{
+            id: rowData
             spacing: app.fs*0.15
             anchors.verticalCenter: parent.verticalCenter
             Repeater{
                 id: rep
                 Rectangle{
-                    width: txtRow.contentWidth+app.fs*0.2
-                    height: txtRow.contentHeight+app.fs*0.2
-                    color: 'black'
+                    width: txtRow.contentWidth+app.fs*0.3
+                    height: txtRow.contentHeight+app.fs*0.3
+                    color: apps.backgroundColor
                     border.width: 1
-                    border.color: 'white'
+                    border.color: apps.fontColor
                     radius: app.fs*0.1
-                    Text{
+                    XText{
                         id: txtRow
                         text: modelData//.replace(/_/g, ' ')
-                        font.pixelSize: r.height*0.35
-                        //font.family: "ArialMdm"
-                        color: 'white'
+                        //font.pixelSize: r.height*0.35
+                        //font.family: "TypeWriter"
+                        //color: 'white'
                         anchors.centerIn: parent
                     }
+                    //Component.onCompleted: r.height=height+height*0.2
                 }
             }
         }
@@ -108,10 +110,10 @@ Rectangle {
         Rectangle{
             width: txtCurrentDate.contentWidth+app.fs*0.5
             height: txtCurrentDate.contentHeight+app.fs*0.5
-            color: 'black'
+            color: apps.backgroundColor
             border.width: 1
-            border.color: 'white'
-            Text {
+            border.color: apps.fontColor
+            XText {
                 id: txtCurrentDate
                 text: '0/0/000 00:00'
                 font.pixelSize: app.fs*0.5
@@ -124,10 +126,10 @@ Rectangle {
         Rectangle{
             width: txtCurrentGmt.contentWidth+app.fs//*0.5
             height: txtCurrentGmt.contentHeight+app.fs*0.5
-            color: 'black'
+            color: apps.backgroundColor
             border.width: 1
-            border.color: 'white'
-            Text {
+            border.color: apps.fontColor
+            XText {
                 id: txtCurrentGmt
                 text: '?'
                 font.pixelSize: app.fs*0.5

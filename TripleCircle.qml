@@ -99,7 +99,7 @@ Item {
                 antialiasing: true
             }
             Text{
-                font.pixelSize: r.ih<=9?r.wtc*0.8:r.wtc*0.6
+                font.pixelSize: r.ih<=9?r.wtc*0.6:r.wtc*0.4
                 text: '<b>'+r.ih+'</b>'
                 color: 'white'
                 anchors.centerIn: parent
@@ -131,11 +131,11 @@ Item {
                 anchors.centerIn: parent
                 rotation: r.iconoSignRot - 60
                 Text{
-                    font.pixelSize: r.wtc*0.45
+                    font.pixelSize: r.wtc*0.35
                     text: '<b>°'+r.rsgdeg+'</b>'
                 }
                 Text{
-                    font.pixelSize: r.wtc*0.35
+                    font.pixelSize: r.wtc*0.25
                     text: '<b>\''+r.mdeg+'</b>'
 
                 }

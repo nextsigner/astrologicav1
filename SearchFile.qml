@@ -11,7 +11,7 @@ Item{
         spacing: app.fs
         Row{
             spacing: app.fs*0.5
-            Text {
+            XText {
                 id: l1
                 text: '<b>Archivo:</b>'
                 font.pixelSize: app.fs*0.5

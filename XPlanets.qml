@@ -144,7 +144,7 @@ Item {
                     radius: parent.radius
                     z:parent.z-1
                 }
-                Text {
+                XText {
                     id: txtPlanetName
                     text: app.currentPlanetIndex >=0?'<b>'+app.planetas[app.currentPlanetIndex]+'</b>':'<b>Tierra</b>'
                     font.pixelSize: app.fs*0.5

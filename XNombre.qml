@@ -14,7 +14,7 @@ Rectangle {
        opacity: 0.65
     }
 
-    Text {
+    XText {
         id: txtNom
         text: r.nom
         font.pixelSize: app.fs

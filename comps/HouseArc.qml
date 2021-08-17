@@ -1,4 +1,5 @@
 import QtQuick 2.0
+import "../"
 
 Item {
     id: r
@@ -27,7 +28,7 @@ Item {
             name: sweg.aStates[0]
             PropertyChanges {
                 target: ejeV
-                width:  r.width+sweg.fs*1.5
+                width:  r.width+sweg.fs*2//.5
             }
             PropertyChanges {
                 target: canvas2
@@ -62,7 +63,7 @@ Item {
             name: sweg.aStates[2]
             PropertyChanges {
                 target: ejeV
-                width: r.width+sweg.fs*1.5
+                width: r.width+sweg.fs*2
             }
             PropertyChanges {
                 target: canvas2
@@ -199,14 +200,14 @@ Item {
                 id: lineaEje
                 width: ((ejeV.width-r.width)*0.5-circleBot.width)
                 height: r.wb
-                color: r.selected?r.colors[r.c]:'white'
+                color: apps.fontColor//r.selected?r.colors[r.c]:'white'
                 antialiasing: true
             }
             Rectangle{
                 id: lineaEje2
                 width: r.w
                 height: r.wb
-                color: r.colors[r.c]
+                color: apps.fontColor//'red'//r.colors[r.c]
                 antialiasing: true
             }
         }
@@ -215,9 +216,9 @@ Item {
             width: sweg.fs*0.75+r.wb*2
             height: width
             radius: width*0.5
-            color: 'black'
+            color: apps.fontColor
             border.width: r.wb
-            border.color: lineaEje.color
+            border.color: apps.fontColor//lineaEje.color
             anchors.verticalCenter: parent.verticalCenter
             antialiasing: true
             state: sweg.state
@@ -226,9 +227,9 @@ Item {
                     name: sweg.aStates[0]
                     PropertyChanges {
                         target: circleBot
-                        width: sweg.fs*0.5
+                        width: sweg.fs*0.75
                         border.width: 1
-                        border.color: 'white'
+                        border.color: apps.fontColor//'white'
                     }
                 },
                 State {
@@ -244,9 +245,9 @@ Item {
                     name: sweg.aStates[2]
                     PropertyChanges {
                         target: circleBot
-                        width: sweg.fs*0.5
+                        width: sweg.fs*0.75
                         border.width: 1
-                        border.color: 'white'
+                        border.color: apps.fontColor//'white'
                     }
                 }
             ]
@@ -260,13 +261,14 @@ Item {
                     swegz.sweg.objHousesCircle.currentHouse=ni
                 }
             }
-            Text{
+            XText{
                 text: '<b>'+r.n+'</b>'
-                font.pixelSize: parent.width*0.7
+                font.pixelSize: parent.width*0.6
                 width: contentWidth
                 height: contentHeight
                 horizontalAlignment: Text.AlignHCenter
-                color: circleBot.border.color
+                color: apps.backgroundColor
+                //color: circleBot.border.color
                 anchors.centerIn: parent
                 rotation: 0-r.rotation-parent.rotation
             }
@@ -291,7 +293,7 @@ Item {
             anchors.verticalCenter: parent.verticalCenter
             rotation: 90-r.rotation-parent.rotation
             antialiasing: true
-            Text {
+            XText {
                 text: '<b>'+parseFloat(r.wg).toFixed(2)+'</b>'
                 font.pixelSize: parent.width*0.3
                 anchors.centerIn: parent
