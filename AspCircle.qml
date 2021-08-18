@@ -499,12 +499,12 @@ Rectangle {
     }
     function clear_canvas() {
         var ctx = canvas.getContext("2d");
-        ctx.reset();
+        if(ctx)ctx.reset();
         canvas.requestPaint();
     }
     function clear_canvasBg() {
         var ctx = canvasBg.getContext("2d");
-        ctx.reset();
+        if(ctx)ctx.reset();
         canvasBg.requestPaint();
     }
     function load(jsonData){

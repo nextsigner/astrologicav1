@@ -200,14 +200,14 @@ Item {
                 id: lineaEje
                 width: ((ejeV.width-r.width)*0.5-circleBot.width)
                 height: r.wb
-                color: apps.fontColor//r.selected?r.colors[r.c]:'white'
+                color: apps.enableBackgroundColor?apps.fontColor:'white'//r.selected?r.colors[r.c]:'white'
                 antialiasing: true
             }
             Rectangle{
                 id: lineaEje2
                 width: r.w
                 height: r.wb
-                color: apps.fontColor//'red'//r.colors[r.c]
+                color: apps.enableBackgroundColor?apps.fontColor:'white'//'red'//r.colors[r.c]
                 antialiasing: true
             }
         }
@@ -216,9 +216,9 @@ Item {
             width: sweg.fs*0.75+r.wb*2
             height: width
             radius: width*0.5
-            color: apps.fontColor
+            color: apps.enableBackgroundColor?apps.fontColor:'white'
             border.width: r.wb
-            border.color: apps.fontColor//lineaEje.color
+            border.color: apps.enableBackgroundColor?apps.fontColor:'white'//lineaEje.color
             anchors.verticalCenter: parent.verticalCenter
             antialiasing: true
             state: sweg.state
@@ -229,7 +229,7 @@ Item {
                         target: circleBot
                         width: sweg.fs*0.75
                         border.width: 1
-                        border.color: apps.fontColor//'white'
+                        border.color: apps.enableBackgroundColor?apps.fontColor:'white'//'white'
                     }
                 },
                 State {
@@ -267,7 +267,7 @@ Item {
                 width: contentWidth
                 height: contentHeight
                 horizontalAlignment: Text.AlignHCenter
-                color: apps.backgroundColor
+                color: apps.enableBackgroundColor?apps.backgroundColor:'black'
                 //color: circleBot.border.color
                 anchors.centerIn: parent
                 rotation: 0-r.rotation-parent.rotation

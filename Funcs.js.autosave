@@ -44,8 +44,6 @@ function loadFromArgs(d, m, a, h, min, gmt, lat, lon, alt, nom, ciudad, save){
         loadJson(fn)
         return
     }
-    //xDataBar.state='show'
-    //xDataBar.opacity=1.0
     runJsonTemp()
 }
 

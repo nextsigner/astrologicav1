@@ -20,9 +20,8 @@ AppWin {
     minimumWidth: Screen.desktopAvailableWidth-app.fs*4
     minimumHeight: Screen.desktopAvailableHeight-app.fs*4
     color: apps.enableBackgroundColor?apps.backgroundColor:'black'
-    title: 'Astrológica '+version
+    title: 'Zool '+version
     property bool dev: false
-    property string version: '1.0'
     property string mainLocation: ''
     property string pythonLocation: Qt.platform.os==='windows'?'./Python/python.exe':'python3'
     property int fs: Qt.platform.os==='linux'?width*0.02:width*0.02
@@ -117,7 +116,7 @@ AppWin {
     FontLoader {name: "TypeWriter";source: "qrc:/resources/typewriter.ttf";}
     Settings{
         id: apps
-        fileName:'astrologica_'+Qt.platform.os+'.cfg'
+        fileName:documentsPath+'/zool_'+Qt.platform.os+'.cfg'
         property bool enableBackgroundColor: false
         property string backgroundColor: "black"
         property string fontFamily: "ArialMdm"
@@ -131,15 +130,22 @@ AppWin {
         property bool showMenuBar: true
 
         property bool lt:false
-        property string jsonsFolder
+        property string jsonsFolder: documentsPath
+        onEnableBackgroundColorChanged: {
+            if(enableBackgroundColor){
+                ip.hideSS()
+            }else{
+                ip.showSS()
+            }
+        }
         Component.onCompleted: {
             //fontSize=app.fs*0.5
             //fontColor='red'
             //backgroundColor='yellow'
-            if(!jsonsFolder){
+            /*if(!jsonsFolder){
                 console.log('Seteando jsonsFolder...')
                 let docFolder=unik.getPath(3)
-                let jsonsFolderString=docFolder+'/AstroLogica/jsons'
+                let jsonsFolderString=docFolder+'/Zool/jsons'
                 if(!unik.folderExist(jsonsFolderString)){
                     console.log('Creando carpeta '+jsonsFolderString)
                     unik.mkdir(jsonsFolderString)
@@ -148,6 +154,7 @@ AppWin {
                 }
                 apps.jsonsFolder=jsonsFolderString
             }
+            //fileName=jsonsFolder+'/zool_'+Qt.platform.os+'.cfg'*/
         }
     }
     menuBar: Comps.XMenuBar {}
@@ -207,7 +214,7 @@ AppWin {
                 }
                 Item{
                     anchors.fill: parent
-                    PanelZonaMes{id: panelZonaMes;}
+                    //PanelZonaMes{id: panelZonaMes;}
                     PanelRsList{id: panelRsList}
                     PanelFileLoader{id: panelFileLoader}
                     PanelNewVNA{id: panelNewVNA}
@@ -239,7 +246,7 @@ AppWin {
         XSabianos{id: xSabianos}
         XInfoData{id: xInfoData}
     }
-    Init{longAppName: 'Astrológica'; folderName: 'astrologica'}
+    Init{longAppName: 'Zool'; folderName: 'zool'}
     Comps.XSelectColor{
         id: xSelectColor
         width: app.fs*8
@@ -253,10 +260,15 @@ AppWin {
         JS.setFs()
         app.mainLocation=unik.getPath(1)
         console.log('app.mainLocation: '+app.mainLocation)
+        console.log('documentsPath: '+documentsPath)
         console.log('Init app.url: '+app.url)
         if(apps.url!==''){
             console.log('Cargando al iniciar: '+apps.url)
             JS.loadJson(apps.url)
+        }else{
+            console.log('Loading United Kingston now...')
+            let d=new Date(Date.now())
+            JS.loadFromArgs(d.getDate(), parseInt(d.getMonth() +1),d.getFullYear(), d.getHours(), d.getMinutes(), 0.0,52.7535702,-6.8129301,6, "United Kingston", "United Kingston England", true)
         }
     }
 }

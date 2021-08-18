@@ -7,4 +7,5 @@ cp -r py ./build_win/
 cp -r Python ./build_win/
 cp -r resources ./build_win/
 cp -r swe ./build_win/
+cp -r quiron ./build_win/
 cp astrologica_windows.cfg ./build_win/

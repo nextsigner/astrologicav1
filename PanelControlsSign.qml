@@ -60,7 +60,8 @@ Rectangle {
                     r.enableLoadSign=true
                     return
                 }*/
-                if(currentIndex<12&&panelZonaMes.state==='hide'){
+                //if(currentIndex<12&&panelZonaMes.state==='hide'){
+                if(currentIndex<12){
                     let joPar=app.currentJsonSignData.params
                     if(!app.currentJsonSignData.fechas)return
                     let jo=app.currentJsonSignData.fechas['is'+currentIndex]

@@ -9,13 +9,21 @@ ApplicationWindow {
         id: itemXPlanets
         anchors.fill: parent
         //XPlanets{id: xPlanets}
+        function showSS(){
+            let comp=Qt.createComponent("XPlanets.qml")
+            let obj=comp.createObject(itemXPlanets)
+            if(obj){
+                app.sspEnabled=true
+            }
+        }
+        function hideSS(){
+            for(var i=0;itemXPlanets.children.length;i++){
+                itemXPlanets.children[i].destroy(1)
+            }
+        }
         Component.onCompleted: {
             if(unik.objectName!=='unikpy'){
-                let comp=Qt.createComponent("XPlanets.qml")
-                let obj=comp.createObject(itemXPlanets)
-                if(obj){
-                    app.sspEnabled=true
-                }
+                showSS()
 
             }
         }        

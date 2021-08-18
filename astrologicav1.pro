@@ -1,7 +1,7 @@
 QT += qml quick sql websockets svg serialport
 CONFIG += c++11
 
-TARGET=astrologica
+TARGET=zool
 
 windows{
     include(windows.pri)

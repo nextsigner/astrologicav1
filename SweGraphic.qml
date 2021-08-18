@@ -170,7 +170,7 @@ Item {
         c+='        app.currentJsonSignData=JSON.parse(json)\n'
         c+='        panelControlsSign.loadJson(app.currentJsonSignData)\n'
         c+='        app.mod="pl"\n'
-        c+='        if(panelZonaMes.state===\'show\')panelZonaMes.play()\n'
+        //c+='        if(panelZonaMes.state===\'show\')panelZonaMes.play()\n'
         c+='        uqp'+ms+'.destroy(0)\n'
         c+='    }\n'
         c+='    Component.onCompleted:{\n'

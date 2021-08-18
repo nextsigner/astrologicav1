@@ -22,7 +22,10 @@ void UnikQProcess::run(const QByteArray cmd, bool detached)
 
 void UnikQProcess::logOutProcess()
 {
-    setLogData(this->readAll());
+    //QString data;
+    //data.append(this->readAllStandardOutput());
+    //qDebug()<<"------------>"<<data;
+    setLogData(this->readAllStandardOutput());
 }
 void UnikQProcess::logOutProcessErr()
 {

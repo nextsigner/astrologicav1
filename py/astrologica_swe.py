@@ -5,6 +5,8 @@ from decimal import Decimal
 import sys
 from subprocess import run, PIPE
 
+sys.stdout.reconfigure(encoding='utf-8')
+
 houseType="P"
 
 def decdeg2dms(dd):
