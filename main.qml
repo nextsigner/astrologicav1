@@ -118,6 +118,7 @@ AppWin {
         id: apps
         fileName:documentsPath+'/zool_'+Qt.platform.os+'.cfg'
         property string host: 'http://localhost'
+        property bool newClosed: false
         property bool enableBackgroundColor: false
         property string backgroundColor: "black"
         property string fontFamily: "ArialMdm"
@@ -262,9 +263,12 @@ AppWin {
                 let h=(''+data).replace(/\n/g, '')
                 apps.host=h
                 let ms=new Date(Date.now()).getTime()
-                JS.getRD('https://github.com/nextsigner/nextsigner.github.io/raw/master/zool/windowstart/main.qml?r='+ms, setZoolStart)
+                if(!apps.newClosed){
+                    JS.getRD('https://github.com/nextsigner/nextsigner.github.io/raw/master/zool/windowstart/main.qml?r='+ms, setZoolStart)
+                }
             }else{
                 console.log('Data '+isData+': '+data)
+                JS.showMsgDialog('Error! - Zool Informa', 'Problemas de conexión a internet', 'Por alguna razón, la aplicación no está pudiendo acceder a internet para obtener los datos requeridos. Error: '+data)
             }
         }
     }
@@ -276,6 +280,7 @@ AppWin {
                 let comp=Qt.createQmlObject(data, app, 'xzoolstart')
             }else{
                 console.log('setXZoolStart Data '+isData+': '+data)
+                JS.showMsgDialog('Error! - Zool Informa', 'Problemas de conexión a internet', 'Por alguna razón, la aplicación no está pudiendo acceder a internet para obtener los datos requeridos. Error: '+data)
             }
         }
     }

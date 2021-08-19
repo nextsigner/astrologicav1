@@ -59,28 +59,26 @@ function showIW(){
     //Cuerpo en Casa
     let nomCuerpo=m0[0]!=='asc'?app.planetas[app.planetasRes.indexOf(m0[0])]:'Ascendente'
     let jsonFileName=m0[0]!=='asc'?quitarAcentos(nomCuerpo.toLowerCase())+'.json':'asc.json'
-    let jsonFileLocation='/home/ns/nsp/uda/quiron/data/'+jsonFileName
-    if(!unik.fileExist(jsonFileLocation)){
-        let obj=comp.createObject(app, {textData:'No hay datos disponibles.', width: sweg.width, height: sweg.height, x:0, y:0, fs: app.fs*0.5, title:'Sin datos'})
-    }else{
+    let jsonFileLocation='./quiron/data/'+jsonFileName
+//    if(!unik.fileExist(jsonFileLocation)){
+//        let obj=comp.createObject(app, {textData:'No hay datos disponibles.', width: sweg.width, height: sweg.height, x:0, y:0, fs: app.fs*0.5, title:'Sin datos'})
+//    }else{
         let numHome=m0[0]!=='asc'?-1:1
         let vNumRom=['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII']
         numHome=parseInt(m0[2])//vNumRom.indexOf(m0[2])+1
         console.log('::::Abriendo signo: '+app.objSignsNames.indexOf(m0[1])+' casa: '+numHome+' nomCuerpo: '+nomCuerpo)
         getJSON(jsonFileName, comp, app.objSignsNames.indexOf(m0[1])+1, numHome, nomCuerpo)
-    }
+    //}
 }
 function getJSON(fileLocation, comp, s, c, nomCuerpo) {
     var request = new XMLHttpRequest()
 
-    //Url GitHub Raw Data
-    //https://github.com/nextsigner/quiron/raw/main/data/pluton.json
-
     //Url File Local Data
     //'file:///home/ns/Documentos/unik/quiron/data/neptuno.json'
 
-    //let jsonFileUrl='file:///home/ns/nsp/uda/quiron/data/'+fileLocation
-    let jsonFileUrl='file:./quiron/data/'+fileLocation
+    //let jsonFileUrl='file:./quiron/data/'+fileLocation
+    let jsonFileUrl='https://github.com/nextsigner/quiron/raw/master/data/'+fileLocation
+
     //console.log('jsonFileUrl: '+jsonFileUrl)
     request.open('GET', jsonFileUrl, true);
     //request.open('GET', 'https://github.com/nextsigner/quiron/raw/main/data/'+cbPlanetas.currentText+'.json', true);
@@ -117,6 +115,7 @@ function getJSON(fileLocation, comp, s, c, nomCuerpo) {
                 //console.log('Data-->'+JSON.stringify(result))
             } else {
                 console.log("HTTP:", request.status, request.statusText)
+                JS.showMsgDialog('Error! - Zool Informa', 'Error! Al acceder al repositorio Quirón. Problemas de conexión a internet', 'No se ha podido obtener datos de la base de datos del Repositorio Quirón.\n\nPor alguna razón, la aplicación no está pudiendo acceder a internet para obtener los datos requeridos. Error: '+data)
             }
         }
     }
@@ -460,6 +459,23 @@ function getRD(url, item){//Remote Data
 
 
 //Funciones de GUI
+function showMsgDialog(title, text, itext){
+    let c='import QtQuick 2.0\n'
+        +'import QtQuick.Dialogs 1.1\n'
+        +'MessageDialog {\n'
+        +'      visible: true\n'
+        +'       title: "'+title+'"\n'
+        +'      standardButtons:  StandardButton.Close\n'
+        +'      icon: StandardIcon.Information\n'
+        +'     text: "                   '+text+'                  "\n'
+        +'     informativeText: "'+itext+'"\n'
+        +'    onAccepted: {\n'
+        +'       close()\n'
+        +'   }\n'
+        +'}\n'
+    console.log(c)
+    let comp=Qt.createQmlObject(c, app, 'codeshowMsgDialog')
+}
 function raiseItem(item){
     let z=0
     for(let i=0;i<item.parent.children.length;i++){

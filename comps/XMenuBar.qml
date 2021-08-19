@@ -24,6 +24,7 @@ MenuBar{
     }
     Menu {
         title: qsTr("&Ayuda")
+        Action { text: qsTr("&Novedades Sobre Zool");onTriggered: JS.getRD('https://github.com/nextsigner/nextsigner.github.io/raw/master/zool/windowstart/main.qml', setZoolStart)}
         Action { text: qsTr("&Sobre Zool");onTriggered: mdSA.visible=true}
         Action { text: qsTr("&Sobre Qt");onTriggered: mdSQ.visible=true}
     }
