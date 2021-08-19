@@ -12,7 +12,7 @@ Item {
                 +"Name="+r.longAppName+"\n"
                 +"Comment=Aplicación para Visualizar simbolos de astrología.\n"
                 //+"Exec=/usr/local/bin/unik -folder=/home/ns/nsp/uda/"+r.folderName+"\n"
-                +"Exec=/usr/local/bin/astrologica\n"
+                +"Exec=/usr/local/bin/zool\n"
                 +"Icon="+unik.getPath(4)+"/img/icon.png\n"
                 +"Terminal=false\nType=Application"
             let desktopPath=unik.getPath(6)

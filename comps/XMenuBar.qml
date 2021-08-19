@@ -24,16 +24,16 @@ MenuBar{
     }
     Menu {
         title: qsTr("&Ayuda")
-        Action { text: qsTr("&Sobre AstroLógica");onTriggered: mdSA.visible=true}
+        Action { text: qsTr("&Sobre Zool");onTriggered: mdSA.visible=true}
         Action { text: qsTr("&Sobre Qt");onTriggered: mdSQ.visible=true}
     }
     MessageDialog {
         id: mdSA
-        title: "Sobre AstroLógica"
+        title: "Sobre Zool"
         width: app.fs*10
         standardButtons:  StandardButton.Close
         icon: StandardIcon.Information
-        text: "<b>AstroLógica v0.1</b>"
+        text: "<b>Zool v"+version+"</b>"
         informativeText: "Esta aplicación fue desarrollada por Ricardo Martín Pizarro.\nJunio 2021 Buenos Aires Argentina\nPara más información: nextsigner@gmail.com\nFue creada con el Framework Qt Open Source 5.15.2"
         onAccepted: {
             close()

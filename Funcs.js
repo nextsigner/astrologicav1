@@ -31,9 +31,9 @@ function setFs() {
 }
 
 //Funciones de Cargar Datos
-function loadFromArgs(d, m, a, h, min, gmt, lat, lon, alt, nom, ciudad, save){
+function loadFromArgs(d, m, a, h, min, gmt, lat, lon, alt, nom, ciudad, tipo, save){
     let dataMs=new Date(Date.now())
-    let j='{"params":{"tipo":"vn","ms":'+dataMs.getTime()+',"n":"'+nom+'","d":'+d+',"m":'+m+',"a":'+a+',"h":'+h+',"min":'+min+',"gmt":'+gmt+',"lat":'+lat+',"lon":'+lon+',"alt":'+alt+',"ciudad":"'+ciudad+'"}}'
+    let j='{"params":{"tipo":"'+tipo+'","ms":'+dataMs.getTime()+',"n":"'+nom+'","d":'+d+',"m":'+m+',"a":'+a+',"h":'+h+',"min":'+min+',"gmt":'+gmt+',"lat":'+lat+',"lon":'+lon+',"alt":'+alt+',"ciudad":"'+ciudad+'"}}'
     setTitleData(nom, d, m, a, h, min, gmt, ciudad, lat, lon, 1)
     app.currentData=j
     app.fileData=j
@@ -190,7 +190,7 @@ function deg_to_dms (deg) {
 }
 
 
-//Astrologica
+//Zool
 function loadJson(file){
     //Global Vars Reset
     app.setFromFile=true
@@ -441,6 +441,23 @@ function setTitleData(nom, vd, vm, va, vh, vmin, vgmt, vCiudad, vlat, vlon, mod)
         +'|<b>lat:</b> '+parseFloat(vlat).toFixed(2)+'|<b>lon:</b> '+parseFloat(vlon).toFixed(2)+' '
     xDataBar.titleData=textData
 }
+
+//Funciones de Internet
+function getRD(url, item){//Remote Data
+    var request = new XMLHttpRequest()
+    request.open('GET', url, true);
+    request.onreadystatechange = function() {
+        if (request.readyState === XMLHttpRequest.DONE) {
+            if (request.status && request.status === 200) {
+                item.setData(request.responseText, true)
+            } else {
+                item.setData("Url: "+url+" Status:"+request.status+" HTTP: "+request.statusText, false)
+            }
+        }
+    }
+    request.send()
+}
+
 
 //Funciones de GUI
 function raiseItem(item){

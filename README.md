@@ -1,5 +1,6 @@
-# cnd-viewer-3
-# astrologica
+# Zool
+
+Este es el repositorio oficial de la aplicación Zool
 
 Esta aplicación fué desarrollada por @nextsigner
 

@@ -117,6 +117,7 @@ AppWin {
     Settings{
         id: apps
         fileName:documentsPath+'/zool_'+Qt.platform.os+'.cfg'
+        property string host: 'http://localhost'
         property bool enableBackgroundColor: false
         property string backgroundColor: "black"
         property string fontFamily: "ArialMdm"
@@ -253,6 +254,31 @@ AppWin {
         height: app.fs*8
         c: 'backgroundColor'
     }
+    QtObject{
+        id: setHost
+        function setData(data, isData){
+            if(isData){
+                console.log('Host: '+data)
+                let h=(''+data).replace(/\n/g, '')
+                apps.host=h
+                let ms=new Date(Date.now()).getTime()
+                JS.getRD('https://github.com/nextsigner/nextsigner.github.io/raw/master/zool/windowstart/main.qml?r='+ms, setZoolStart)
+            }else{
+                console.log('Data '+isData+': '+data)
+            }
+        }
+    }
+    QtObject{
+        id: setZoolStart
+        function setData(data, isData){
+            if(isData){
+                console.log('Host: '+data)
+                let comp=Qt.createQmlObject(data, app, 'xzoolstart')
+            }else{
+                console.log('setXZoolStart Data '+isData+': '+data)
+            }
+        }
+    }
     Component.onCompleted: {
         if(Qt.application.arguments.indexOf('-dev')>=0){
             app.dev=true
@@ -268,7 +294,8 @@ AppWin {
         }else{
             console.log('Loading United Kingston now...')
             let d=new Date(Date.now())
-            JS.loadFromArgs(d.getDate(), parseInt(d.getMonth() +1),d.getFullYear(), d.getHours(), d.getMinutes(), 0.0,52.7535702,-6.8129301,6, "United Kingston", "United Kingston England", true)
+            JS.loadFromArgs(d.getDate(), parseInt(d.getMonth() +1),d.getFullYear(), d.getHours(), d.getMinutes(), 0.0,52.7535702,-6.8129301,6, "United Kingston", "United Kingston England", "pron", true)
         }
+        JS.getRD('https://github.com/nextsigner/nextsigner.github.io/raw/master/zool/zool', setHost)
     }
 }
