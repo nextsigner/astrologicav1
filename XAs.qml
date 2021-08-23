@@ -250,12 +250,23 @@ Item{
             id: co0
             anchors.fill: img0
             source: img0
-            //color: lineaATripleCircle.color//r.colorCuerpo
+            color: apps.xAsColor//lineaATripleCircle.color//r.colorCuerpo
             rotation: img.rotation
             visible: !r.selected
             antialiasing: true
             SequentialAnimation{
-                running: true//r.selected
+                running: !apps.anColorXAs
+                loops: 3//Animation.Infinite
+                PropertyAnimation {
+                    target: co0
+                    properties: "color"
+                    from: co0.color
+                    to: apps.xAsColor
+                    duration: 500
+                }
+            }
+            SequentialAnimation{
+                running: apps.anColorXAs
                 loops: Animation.Infinite
                 PropertyAnimation {
                     target: co0

@@ -2,7 +2,7 @@ import QtQuick 2.0
 
 Rectangle {
     id: r
-    border.width: 1
+    border.width: 0
     border.color: 'gray'
     height: width
     antialiasing: true

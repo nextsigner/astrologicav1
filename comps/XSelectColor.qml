@@ -16,6 +16,9 @@ ColorDialog {
             if(c==='backgroundColor'){
                 currentColor=apps.backgroundColor
             }
+            if(c==='xAsColor'){
+                currentColor=apps.xAsColor
+            }
             uColor=currentColor
         }
     }
@@ -35,6 +38,11 @@ ColorDialog {
         }
         if(c==='backgroundColor'){
             apps.backgroundColor=colorDialog.color
+            colorDialog.visible=false
+            return
+        }
+        if(c==='xAsColor'){
+            apps.xAsColor=colorDialog.color
             colorDialog.visible=false
             return
         }

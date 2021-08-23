@@ -35,8 +35,6 @@ function loadFromArgs(d, m, a, h, min, gmt, lat, lon, alt, nom, ciudad, tipo, sa
     let dataMs=new Date(Date.now())
     let j='{"params":{"tipo":"'+tipo+'","ms":'+dataMs.getTime()+',"n":"'+nom+'","d":'+d+',"m":'+m+',"a":'+a+',"h":'+h+',"min":'+min+',"gmt":'+gmt+',"lat":'+lat+',"lon":'+lon+',"alt":'+alt+',"ciudad":"'+ciudad+'"}}'
     setTitleData(nom, d, m, a, h, min, gmt, ciudad, lat, lon, 1)
-    app.currentData=j
-    app.fileData=j
     if(save){
         let fn=apps.jsonsFolder+'/'+nom.replace(/ /g, '_')+'.json'
         console.log('loadFromArgs('+d+', '+m+', '+a+', '+h+', '+min+', '+gmt+', '+lat+', '+lon+', '+alt+', '+nom+', '+ciudad+', '+save+'): '+fn)
@@ -46,6 +44,8 @@ function loadFromArgs(d, m, a, h, min, gmt, lat, lon, alt, nom, ciudad, tipo, sa
     }
     //xDataBar.state='show'
     //xDataBar.opacity=1.0
+    app.currentData=j
+    app.fileData=j
     runJsonTemp()
 }
 
@@ -86,11 +86,11 @@ function getJSON(fileLocation, comp, s, c, nomCuerpo) {
         if (request.readyState === XMLHttpRequest.DONE) {
             if (request.status && request.status === 200) {
                 //console.log(":::", request.responseText)
-                var result = JSON.parse(request.responseText)
+                var result = JSON.parse(parseRetRed(request.responseText))
                 if(result){
                     //console.log(result)
                     //console.log('Abriendo casa de json: '+c)
-                    console.log('Abriendo dato signo:'+s+' casa:'+c+'...')
+                    //console.log('Abriendo dato signo:'+s+' casa:'+c+'...')
                     let dataJson0=''
                     let data=''//+result['h'+c]
                     if(result['h'+c]){
@@ -110,7 +110,7 @@ function getJSON(fileLocation, comp, s, c, nomCuerpo) {
                             data+='<p>'+dataJson0[i]+'</p>'
                         }
                     }
-                    let obj=comp.createObject(app, {textData:data, width: app.width*0.6, height: app.height, x:app.width*0.2, y:0, fs: app.fs*0.5, title: nomCuerpo+' en '+app.signos[s - 1]+' en casa '+c, xOffSet: app.fs*6})
+                    let obj=comp.createObject(app, {textData:data, width: app.width*0.6, x:app.width*0.2, fs: app.fs*0.5, title: nomCuerpo+' en '+app.signos[s - 1]+' en casa '+c, xOffSet: app.fs*6})
                 }
                 //console.log('Data-->'+JSON.stringify(result))
             } else {
@@ -448,7 +448,14 @@ function getRD(url, item){//Remote Data
     request.onreadystatechange = function() {
         if (request.readyState === XMLHttpRequest.DONE) {
             if (request.status && request.status === 200) {
-                item.setData(request.responseText, true)
+                /*let d=request.responseText
+                if(d.indexOf('redirected')>=0&&d.indexOf('</html>')>=0){
+                    let m0=d.split('</html>')
+                     item.setData(m0[1], true)
+                }else{
+                     item.setData(d, true)
+                }*/
+                item.setData(parseRetRed(request.responseText), true)
             } else {
                 item.setData("Url: "+url+" Status:"+request.status+" HTTP: "+request.statusText, false)
             }
@@ -456,7 +463,14 @@ function getRD(url, item){//Remote Data
     }
     request.send()
 }
-
+function parseRetRed(d){
+    if(d.indexOf('redirected')>=0&&d.indexOf('</html>')>=0){
+        let m0=d.split('</html>')
+         return m0[1]
+    }else{
+         return d
+    }
+}
 
 //Funciones de GUI
 function showMsgDialog(title, text, itext){

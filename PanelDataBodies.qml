@@ -58,10 +58,9 @@ Rectangle {
             border.width: 2
             border.color: apps.fontColor
             XText {
-                text: '<b>Astrológica v1.0 by @nextsigner</b>'
+                text: '<b>Zool v'+version+' by @nextsigner</b>'
                 font.pixelSize: app.fs*0.5
                 width: contentWidth
-                //color: 'white'
                 anchors.centerIn: parent
             }
         }

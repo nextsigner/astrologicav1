@@ -6,7 +6,7 @@ Rectangle {
     height: cellWidth*15
     color: 'transparent'
     antialiasing: true
-    property int cellWidth: app.fs*0.4
+    property int cellWidth: app.fs*0.5
     Row{
         id: row
         Repeater{

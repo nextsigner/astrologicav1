@@ -3,8 +3,6 @@ import QtQuick 2.0
 Rectangle {
     id: r
     height: width
-    border.width: 1
-    border.color: 'gray'
     color: indexAsp!==-1?arrColors[indexAsp]:'transparent'
     property var arrColors: ['red','#ff8833',  'green', '#124cb1']
     property int indexAsp: -1
@@ -71,11 +69,22 @@ Rectangle {
             }
         }
     }
+    Rectangle{
+        width: 1
+        height: r.height
+        color: apps.fontColor
+    }
+    Rectangle{
+        width: r.width
+        height: 1
+        color: apps.fontColors
+        anchors.bottom: parent.bottom
+    }
     Text{
         text:'<b>'+r.indexPosAsp+'</b>'
         font.pixelSize: 10
         anchors.centerIn: parent
         color: 'white'
-        visible: r.indexPosAsp!==-1
+        visible: false//r.indexPosAsp!==-1
     }
 }

@@ -6,9 +6,9 @@ ApplicationWindow {
     id: app
     visible: true
     width: app.fs*10
-    height: app.fs*10
+    height: Screen.desktopAvailableHeight-app.fs*3
     x: (Screen.width-app.width)/2+xOffSet
-    y: (Screen.height-app.height)/2
+    y: app.fs*2.5
     color: 'black'
     property int xOffSet: 0
     property int fs: Screen.width*0.02

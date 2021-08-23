@@ -1,6 +1,7 @@
 import QtQuick 2.7
 import "Funcs.js" as JS
 import "./comps" as Comps
+
 Rectangle {
     id: r
     width: parent.width
@@ -96,7 +97,7 @@ Rectangle {
     Comps.XTimes{
         id: xTimes
         anchors.right: parent.right
-        anchors.rightMargin: app.fs*0.1
+        anchors.rightMargin: app.fs*0.5
         anchors.verticalCenter: parent.verticalCenter
         anchors.verticalCenterOffset: yPos
     }

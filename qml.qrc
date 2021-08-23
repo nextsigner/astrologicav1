@@ -6,5 +6,6 @@
         <file>resources/typewriter.ttf</file>
         <file>resources/typewriter_bold.ttf</file>
         <file>XText.qml</file>
+        <file>comps/XText.qml</file>
     </qresource>
 </RCC>

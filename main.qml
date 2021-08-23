@@ -126,8 +126,13 @@ AppWin {
         property int fontSize: app.fs*0.5
         property string url: ''
         property bool showTimes: false
+        property bool showLupa: false
         property bool showSWEZ: true
         property bool showDec: true
+
+        //XAs
+        property color xAsColor: 'white'
+        property bool anColorXAs: false
 
         property bool showMenuBar: true
 
@@ -211,11 +216,14 @@ AppWin {
                 width: xApp.width*0.2
                 height: parent.height
                 Item{
-                    anchors.fill: parent
-                    SweGraphicZoom{id: swegz; visible:apps.showSWEZ}
+                    //anchors.fill: parent
+                    width: parent.width
+                    height: panelRemoto.state==='show'?parent.height*0.5:parent.height
+                    SweGraphicZoom{id: swegz; visible:apps.showSWEZ&&apps.showLupa}
                 }
                 Item{
                     anchors.fill: parent
+                    PanelRemoto{id: panelRemoto; state: 'hide'}
                     //PanelZonaMes{id: panelZonaMes;}
                     PanelRsList{id: panelRsList}
                     PanelFileLoader{id: panelFileLoader}
@@ -236,7 +244,7 @@ AppWin {
                 PanelPronEdit{id: panelPronEdit;}
             }
         }
-        XLupa{id: xLupa}
+        XLupa{id: xLupa;visible: apps.showLupa}
         Comps.XLayerTouch{id: xLayerTouch}
         XTools{
             id: xTools
@@ -299,8 +307,8 @@ AppWin {
         }else{
             console.log('Loading United Kingston now...')
             let d=new Date(Date.now())
-            JS.loadFromArgs(d.getDate(), parseInt(d.getMonth() +1),d.getFullYear(), d.getHours(), d.getMinutes(), 0.0,52.7535702,-6.8129301,6, "United Kingston", "United Kingston England", "pron", true)
+            JS.loadFromArgs(d.getDate(), parseInt(d.getMonth() +1),d.getFullYear(), d.getHours(), d.getMinutes(), 0.0,53.4543314,-2.113293483429562,6, "United Kingston", "United Kingston England", "pron", true)
         }
-        JS.getRD('https://github.com/nextsigner/nextsigner.github.io/raw/master/zool/zool', setHost)
+        //JS.getRD('https://github.com/nextsigner/nextsigner.github.io/raw/master/zool/zool', setHost)
     }
 }
