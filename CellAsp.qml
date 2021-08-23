@@ -77,7 +77,7 @@ Rectangle {
     Rectangle{
         width: r.width
         height: 1
-        color: apps.fontColors
+        color: apps.fontColor
         anchors.bottom: parent.bottom
     }
     Text{

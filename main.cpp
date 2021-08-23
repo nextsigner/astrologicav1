@@ -121,7 +121,7 @@ int main(int argc, char *argv[])
     }, Qt::QueuedConnection);
     qmlRegisterType<UnikQProcess>("unik.UnikQProcess", 1, 0, "UnikQProcess");
     QByteArray documentsPath;
-    documentsPath.append(u.getPath(3));
+    documentsPath.append(u.getPath(3).toUtf8());
     documentsPath.append("/Zool");
     engine.rootContext()->setContextProperty("documentsPath", documentsPath);
     engine.rootContext()->setContextProperty("unik", &u);

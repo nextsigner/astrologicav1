@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.14.0, 2021-08-23T12:42:41. -->
+<!-- Written by QtCreator 4.14.0, 2021-08-23T14:55:50. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -292,13 +292,17 @@
     <valuelist type="QVariantList" key="CustomOutputParsers"/>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:/home/ns/nsp/uda/astrologica/astrologicav1.pro</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">/home/ns/nsp/uda/astrologica/astrologicav1.pro</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">astrologicav12</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:/media/ns/ZONA-A1/astrologicav1/astrologicav1.pro</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">/media/ns/ZONA-A1/astrologicav1/astrologicav1.pro</value>
+    <value type="QString" key="RunConfiguration.Arguments">-folder=/media/ns/ZONA-A1/astrologicav1</value>
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory">/media/ns/ZONA-A1/astrologicav1</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/media/ns/ZONA-A1/astrologicav1/build_linux</value>
    </valuemap>
    <value type="int" key="ProjectExplorer.Target.RunConfigurationCount">1</value>
   </valuemap>

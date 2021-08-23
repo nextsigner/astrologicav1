@@ -12,7 +12,7 @@ Rectangle {
     border.color: 'white'
     x:0-r.width
     anchors.bottom: parent.bottom
-
+    clip: true
     state: 'hide'
     states: [
         State {
@@ -57,6 +57,7 @@ Rectangle {
         repeat: false
         interval: 5000
         onTriggered: JS.getRD('https://github.com/nextsigner/nextsigner.github.io/raw/master/zool/panelremoto/main.qml', r)
+        //onTriggered: JS.getRD('file:////home/ns/nsp/uda/nextsigner.github.io/zool/panelremoto/main.qml', r)
     }
     function setData(data, isData){
         if(isData){
@@ -71,7 +72,7 @@ Rectangle {
                 let fd=unik.getFile(apps.jsonsFolder+'/PanelRemotoDoc.qml')
                 comp=Qt.createQmlObject(fd, r, 'xzoolpanelremoto')
             }else{
-                JS.showMsgDialog('Error! - Zool Informa', 'Problemas de conexión a internet', 'No hay buena conexión de internet.\n\nEl panel remoto lateral de la izquierda será desactivado.\n\nIntenta más tarde.\n\nPor alguna razón, la aplicación no está pudiendo acceder a internet para obtener los datos requeridos. Error: '+data)
+                JS.showMsgDialog('Error! - Zool Informa', 'Problemas de conexión a internet', 'No hay buena conexión de internet.\n\nEl panel remoto lateral de la izquierda será desactivado.\n\nIntenta más tarde.\n\nPor alguna razón, la aplicación no está pudiendo acceder a internet para obtener los datos requeridos. Error: '+data+'\n\nData:'+isData)
             }
         }
     }
