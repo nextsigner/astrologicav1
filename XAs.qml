@@ -102,25 +102,25 @@ Item{
                         to: 'red'
                     }
                 }
-                Behavior on width {
-                    enabled: app.enableAn;
-                    NumberAnimation{
-                        duration: 500
-                        easing.type: Easing.InOutQuad
-                    }
-                }
+//                Behavior on width {
+//                    enabled: apps.enableFullAnimation;
+//                    NumberAnimation{
+//                        duration: 500
+//                        easing.type: Easing.InOutQuad
+//                    }
+//                }
             }
         }
     }
     Behavior on width {
-        enabled: app.enableAn;
+        enabled: apps.enableFullAnimation;
         NumberAnimation{
             duration: 350
             easing.type: Easing.InOutQuad
         }
     }
     Behavior on rotation {
-        enabled: app.enableAn;
+        enabled: apps.enableFullAnimation;
         NumberAnimation{
             duration: sweg.speedRotation
             easing.type: Easing.InOutQuad
@@ -223,14 +223,14 @@ Item{
             rotation: 0-parent.parent.rotation
             antialiasing: true
             Behavior on width {
-                enabled: app.enableAn;
+                enabled: apps.enableFullAnimation;
                 NumberAnimation{
                     duration: 350
                     easing.type: Easing.InOutQuad
                 }
             }
             Behavior on x {
-                enabled: app.enableAn;
+                enabled: apps.enableFullAnimation;
                 NumberAnimation{
                     duration: 350
                     easing.type: Easing.InOutQuad

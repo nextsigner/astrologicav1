@@ -232,7 +232,7 @@ Item {
         eclipseCircle.isEclipse=-1
         //if(app.mod!=='rs'&&app.mod!=='pl'&&panelZonaMes.state!=='show')panelRsList.setRsList(61)
         r.v=true
-        app.enableAn=true
+        apps.enableFullAnimation=true
         tFirtShow.start()
         //tReload.restart()
     }

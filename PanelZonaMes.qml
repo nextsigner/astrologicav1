@@ -49,8 +49,8 @@ Rectangle {
             return
         }
     }
-    Behavior on x{enabled: app.enableAn;NumberAnimation{duration: app.msDesDuration}}
-    Behavior on height{enabled: app.enableAn;NumberAnimation{duration: app.msDesDuration}}
+    Behavior on x{enabled: apps.enableFullAnimation;NumberAnimation{duration: app.msDesDuration}}
+    Behavior on height{enabled: apps.enableFullAnimation;NumberAnimation{duration: app.msDesDuration}}
     Settings{
         id: s
         fileName: 'zm.cfg'
@@ -103,7 +103,7 @@ Rectangle {
             clip: true
             cellWidth: r.width
             cellHeight: lv.height
-            Behavior on contentY{enabled: app.enableAn;NumberAnimation{duration: app.msDesDuration}}
+            Behavior on contentY{enabled: apps.enableFullAnimation;NumberAnimation{duration: app.msDesDuration}}
             onCurrentIndexChanged: {
                 //contentY=0-lv.itemAtIndex(currentIndex).y//+r.height//+lv.itemAtIndex(currentIndex).height//-r.height//*0.5
             }

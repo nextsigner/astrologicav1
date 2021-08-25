@@ -16,7 +16,7 @@ Rectangle{
     //onHeightChanged: lv.height=height
     onSelectedChanged: if(selected)loadJsonTask()
     signal taskFinished(int itemIndex)
-    Behavior on opacity{enabled: app.enableAn;NumberAnimation{duration: app.msDesDuration}}
+    Behavior on opacity{enabled: apps.enableFullAnimation;NumberAnimation{duration: app.msDesDuration}}
     onCurrentIndexSignChanged: {
         let joPar=app.currentJsonSignData.params
         if(!app.currentJsonSignData.fechas)return

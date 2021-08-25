@@ -20,8 +20,8 @@ Item {
     property int extraWidth: 0
     property alias showEjeCentro: ejeCentro.visible
 
-    Behavior on w{enabled: app.enableAn;NumberAnimation{duration: 500}}
-    Behavior on width{enabled: app.enableAn;NumberAnimation{duration:500}}
+    //Behavior on w{enabled: apps.enableFullAnimation;NumberAnimation{duration: 500}}
+    //Behavior on width{enabled: apps.enableFullAnimation;NumberAnimation{duration:500}}
     state: sweg.state
     states: [
         State {
@@ -112,7 +112,7 @@ Item {
         interval: 500
         onTriggered: r.opacity=1.0
     }
-    Behavior on opacity{enabled: app.enableAn;
+    Behavior on opacity{enabled: apps.enableFullAnimation;
         NumberAnimation{duration: r.opacitySpeed}
     }
     onRotationChanged: {
@@ -209,6 +209,8 @@ Item {
                 height: r.wb
                 color: apps.enableBackgroundColor?apps.fontColor:'white'//'red'//r.colors[r.c]
                 antialiasing: true
+                y:c!==6?0-height*0.5:height*0.5
+                //anchors.verticalCenter: parent.top
             }
         }
         Rectangle{

@@ -46,7 +46,7 @@ Item {
         //border.color: 'red'
         Item{
             id: xImg
-            width: r.w*0.25
+            width: r.w*0.5
             height: width
             anchors.verticalCenter: parent.verticalCenter
             anchors.horizontalCenter: parent.left

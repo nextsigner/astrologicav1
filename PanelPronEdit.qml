@@ -26,7 +26,7 @@ Rectangle {
             }
         }
     ]
-    Behavior on x{enabled: app.enableAn;NumberAnimation{duration: app.msDesDuration}}
+    Behavior on x{enabled: apps.enableFullAnimation;NumberAnimation{duration: app.msDesDuration}}
     Column{
         anchors.horizontalCenter: parent.horizontalCenter
         TextArea{

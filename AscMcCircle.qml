@@ -71,7 +71,7 @@ Item {
         antialiasing: true
         Rectangle{
             id: xIconAsc
-            property bool selected: app.currentPlanetIndex===16
+            property bool selected: app.currentPlanetIndex===15
             width: selected?sweg.fs*2:sweg.fs
             height: width
             radius: width*0.5
@@ -100,7 +100,7 @@ Item {
                     name: sweg.aStates[1]
                     PropertyChanges {
                         target: xIconAsc
-                        anchors.rightMargin: app.currentPlanetIndex===15?0- housesCircle.width*0.5-xIconAsc.width*0.5-sweg.fs*1.5:0
+                        anchors.rightMargin: app.currentPlanetIndex===14?0- housesCircle.width*0.5-xIconAsc.width*0.5-sweg.fs*1.5:0
                         //anchors.rightMargin: !xIconAsc.selected?0:0-sweg.width*0.5-sweg.fs*0.25
                         anchors.verticalCenterOffset: !xIconAsc.selected?0-sweg.fs*2:0
                     }
@@ -134,8 +134,8 @@ Item {
                     to: 'red'
                 }
             }
-            Behavior on anchors.rightMargin{enabled: app.enableAn;NumberAnimation{duration: 500;easing.type: Easing.InOutQuad}}
-            Behavior on width{enabled: app.enableAn;NumberAnimation{duration: 250;easing.type: Easing.InOutQuad}}
+            Behavior on anchors.rightMargin{enabled: apps.enableFullAnimation;NumberAnimation{duration: 500;easing.type: Easing.InOutQuad}}
+            //Behavior on width{enabled: apps.enableFullAnimation;NumberAnimation{duration: 250;easing.type: Easing.InOutQuad}}
             Image {
                 id: img
                 source: "./resources/imgs/signos/"+r.isAsc+".svg"
@@ -231,7 +231,7 @@ Item {
         antialiasing: true
         Rectangle{
             id: xIconMC
-            property bool selected: app.currentPlanetIndex===17
+            property bool selected: app.currentPlanetIndex===16
             width: selected?sweg.fs*2:sweg.fs
             height: width
             radius: width*0.5
@@ -246,8 +246,8 @@ Item {
             onSelectedChanged:{
                 app.uSon='mc_'+app.objSignsNames[r.isMC]+'_10'
             }
-            Behavior on anchors.rightMargin{enabled: app.enableAn;NumberAnimation{duration: 500;easing.type: Easing.InOutQuad}}
-            Behavior on x{enabled: app.enableAn;NumberAnimation{duration: 500;easing.type: Easing.InOutQuad}}
+            Behavior on anchors.rightMargin{enabled: apps.enableFullAnimation;NumberAnimation{duration: 500;easing.type: Easing.InOutQuad}}
+            Behavior on x{enabled: apps.enableFullAnimation;NumberAnimation{duration: 500;easing.type: Easing.InOutQuad}}
             state: sweg.state
             states: [
                 State {
@@ -291,7 +291,7 @@ Item {
                     to: 'red'
                 }
             }
-            Behavior on width{enabled: app.enableAn;NumberAnimation{duration: 250;easing.type: Easing.InOutQuad}}
+            //Behavior on width{enabled: apps.enableFullAnimation;NumberAnimation{duration: 250;easing.type: Easing.InOutQuad}}
             Image {
                 id: img2
                 source: "./resources/imgs/signos/"+r.isMC+".svg"

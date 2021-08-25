@@ -79,7 +79,7 @@ function getJSON(fileLocation, comp, s, c, nomCuerpo) {
     //let jsonFileUrl='file:./quiron/data/'+fileLocation
     let jsonFileUrl='https://github.com/nextsigner/quiron/raw/master/data/'+fileLocation
 
-    //console.log('jsonFileUrl: '+jsonFileUrl)
+    console.log('jsonFileUrl: '+jsonFileUrl)
     request.open('GET', jsonFileUrl, true);
     //request.open('GET', 'https://github.com/nextsigner/quiron/raw/main/data/'+cbPlanetas.currentText+'.json', true);
     request.onreadystatechange = function() {
@@ -193,7 +193,7 @@ function deg_to_dms (deg) {
 function loadJson(file){
     //Global Vars Reset
     app.setFromFile=true
-    app.enableAn=false
+    apps.enableFullAnimation=false
     app.currentPlanetIndex=-1
     app.currentSignIndex= 0
     app.currentNom= ''

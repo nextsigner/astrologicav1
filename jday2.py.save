@@ -1,7 +1,0 @@
-import julian
-import datetime
-
-d = datetime.datetime(1985,2,17,6)  
-#d
-#datetime.datetime(1985, 2, 17, 6, 0)
-jjdutil.datetime_to_jd(d)

@@ -38,10 +38,10 @@ Item {
             }
         }
     ]
-    Behavior on rotation{
-        enabled: app.enableAn;
-        NumberAnimation{duration:2000;easing.type: Easing.InOutQuad}
-    }
+//    Behavior on rotation{
+//        enabled: apps.enableFullAnimation;
+//        NumberAnimation{duration:2000;easing.type: Easing.InOutQuad}
+//    }
     Item{
         id: xHomeArcs
         anchors.fill: r
@@ -108,6 +108,7 @@ Item {
             }else{
                 h.wg=p2-p1//+(o1.mdeg/60)
             }
+            //h.wg=1
             if(i===0){
                 h.rotation=0
             }else{
@@ -144,6 +145,10 @@ Item {
                 if(i===11){
                     h.rotation=h.rotation=360-(gp[i-1]+gp[i-2]+gp[i-3]+gp[i-4]+gp[i-5]+gp[i-6]+gp[i-7]+gp[i-8]+gp[i-9]+gp[i-10]+gp[i-11])
                 }
+                if(i!==0&&i!==6&&Qt.platform.os==='windows'){
+                    h.rotation+=1
+                }
+
             }
             gp.push(wgf)
             resta+=xArcs.children[nh].wg-(o1.mdeg/60)-(o2.mdeg/60)

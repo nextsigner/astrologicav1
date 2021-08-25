@@ -23,8 +23,8 @@ Item {
         }
     }
     onXChanged: an.running=true
-    Behavior on x{enabled: app.enableAn;NumberAnimation{duration: 1000;easing.type: Easing.OutQuad}}
-    Behavior on y{enabled: app.enableAn;NumberAnimation{duration: 1000;easing.type: Easing.OutQuad}}
+    Behavior on x{enabled: apps.enableFullAnimation;NumberAnimation{duration: 1000;easing.type: Easing.OutQuad}}
+    Behavior on y{enabled: apps.enableFullAnimation;NumberAnimation{duration: 1000;easing.type: Easing.OutQuad}}
     MouseArea{
         anchors.fill: r
         drag.axis: Drag.XAndYAxis

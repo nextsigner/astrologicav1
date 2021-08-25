@@ -35,7 +35,7 @@ Item {
                 }
             }
         ]
-        Behavior on opacity{enabled: app.enableAn;NumberAnimation{duration: 500}}
+        Behavior on opacity{enabled: apps.enableFullAnimation;NumberAnimation{duration: 500}}
         Canvas {
             id:canvas
             width: sweg.fs*0.5

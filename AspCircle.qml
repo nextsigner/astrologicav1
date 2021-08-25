@@ -42,15 +42,16 @@ Rectangle {
     onCurrentAspSelectedChanged: setPosCurrentAsp(currentAspSelected)
     onWidthChanged: {
         currentAspSelected=-1
-        clear_canvas()
-        clear_canvasBg()
+        //clear_canvas()
+        //clear_canvasBg()
     }
-    Behavior on width {
-        NumberAnimation{
-            duration: sweg.speedRotation
-            easing.type: Easing.InOutQuad
-        }
-    }
+//    Behavior on width {
+//        enabled: apps.enableFullAnimation
+//        NumberAnimation{
+//            duration: sweg.speedRotation
+//            easing.type: Easing.InOutQuad
+//        }
+//    }
     Behavior on opacity {
         NumberAnimation{
             duration: sweg.speedRotation
@@ -58,6 +59,7 @@ Rectangle {
         }
     }
     Behavior on rotation {
+        enabled: apps.enableFullAnimation
         NumberAnimation{
             duration: sweg.speedRotation
             easing.type: Easing.InOutQuad
@@ -106,7 +108,7 @@ Rectangle {
         onJsonChanged: requestPaint()
         onPaint:{
             var ctx = canvas.getContext('2d');
-            ctx.reset();
+            if(ctx)ctx.reset();
             var x = canvas.width*0.5;
             var y = canvas.height*0.5;
             var radius=canvas.width*0.5

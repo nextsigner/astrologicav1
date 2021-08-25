@@ -36,7 +36,7 @@ Rectangle {
             }
         }
     ]
-    Behavior on x{enabled: app.enableAn;NumberAnimation{duration: app.msDesDuration}}
+    Behavior on x{enabled: apps.enableFullAnimation;NumberAnimation{duration: app.msDesDuration}}
     onStateChanged: {
         if(state==='show')tiNombre.t.focus=true
         //JS.raiseItem(r)

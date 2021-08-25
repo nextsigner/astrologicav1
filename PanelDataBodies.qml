@@ -144,49 +144,49 @@ Rectangle {
         }
 
         //Fortuna
-        let joHouses=json.ph['h1']
-        let joSol=json.pc['c0']
-        let joLuna=json.pc['c1']
-        //objAs=r.children[15]
-        var gf
-        if(houseSun>=6){
-            //Fortuna en Carta Diurna
-            //Calculo para Fortuna Diurna Asc + Luna - Sol
-            gf=joHouses.gdec+joLuna.gdec - joSol.gdec
-            if(gf>=360)gf=gf-360
-            //objAs.rotation=signCircle.rot-gf
-        }else{
-            //Fortuna en Carta Nocturna
-            //Calculo para Fortuna Nocturna Asc + Sol - Luna
-            gf=joHouses.gdec+joSol.gdec - joLuna.gdec
-            if(gf>=360)gf=gf-360
-            //objAs.rotation=signCircle.rot-gf
-        }
-        //console.log('gf: '+JS.deg_to_dms(gf))
-        var arrayDMS=JS.deg_to_dms(gf)
-        let of={}
-        of.p=0
-        of.ns=objSignsNames.indexOf(0)
-        of.g=arrayDMS[0]
-        of.m=arrayDMS[1]
-        of.s=arrayDMS[2]
-        var rsDegSign=gf
-        var fortuneIndexSign=-1
-        for(var i2=1;i2<13;i2++){
-            if(i2*30<gf){
-                fortuneIndexSign=i2
-                rsDegSign-=30
-            }
+//        let joHouses=json.ph['h1']
+//        let joSol=json.pc['c0']
+//        let joLuna=json.pc['c1']
+//        //objAs=r.children[15]
+//        var gf
+//        if(houseSun>=6){
+//            //Fortuna en Carta Diurna
+//            //Calculo para Fortuna Diurna Asc + Luna - Sol
+//            gf=joHouses.gdec+joLuna.gdec - joSol.gdec
+//            if(gf>=360)gf=gf-360
+//            //objAs.rotation=signCircle.rot-gf
+//        }else{
+//            //Fortuna en Carta Nocturna
+//            //Calculo para Fortuna Nocturna Asc + Sol - Luna
+//            gf=joHouses.gdec+joSol.gdec - joLuna.gdec
+//            if(gf>=360)gf=gf-360
+//            //objAs.rotation=signCircle.rot-gf
+//        }
+//        //console.log('gf: '+JS.deg_to_dms(gf))
+//        var arrayDMS=JS.deg_to_dms(gf)
+//        let of={}
+//        of.p=0
+//        of.ns=objSignsNames.indexOf(0)
+//        of.g=arrayDMS[0]
+//        of.m=arrayDMS[1]
+//        of.s=arrayDMS[2]
+//        var rsDegSign=gf
+//        var fortuneIndexSign=-1
+//        for(var i2=1;i2<13;i2++){
+//            if(i2*30<gf){
+//                fortuneIndexSign=i2
+//                rsDegSign-=30
+//            }
 
-            if(json.ph['h'+i2].gdec<gf){
-                of.h=i2
-                of.ih=i2
-            }
-        }
-        of.is=fortuneIndexSign
-        of.rsg=rsDegSign
-        s = 'Fortuna °' +parseInt(of.rsg)+ '\'' +of.m+ '\'\'' +of.s+ ' ' +app.signos[of.is]+' - Casa '+parseInt(of.ih)
-        lm.append(lm.addItem(of.is, of.ih, of.rsg, of.m, of.s,  s))
+//            if(json.ph['h'+i2].gdec<gf){
+//                of.h=i2
+//                of.ih=i2
+//            }
+//        }
+//        of.is=fortuneIndexSign
+//        of.rsg=rsDegSign
+//        s = 'Fortuna °' +parseInt(of.rsg)+ '\'' +of.m+ '\'\'' +of.s+ ' ' +app.signos[of.is]+' - Casa '+parseInt(of.ih)
+//        lm.append(lm.addItem(of.is, of.ih, of.rsg, of.m, of.s,  s))
 
         let o1=json.ph['h1']
         s = 'Ascendente °' +o1.rsgdeg+ '\'' +o1.mdeg+ '\'\'' +o1.sdeg+ ' ' +app.signos[o1.is]

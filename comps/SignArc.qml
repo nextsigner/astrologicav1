@@ -130,9 +130,9 @@ Item {
                     anchors.horizontalCenter: parent.horizontalCenter
                     visible: xImg.resaltado
                     opacity: xImg.resaltado?1.0:0.0
-                    Behavior on width{
-                        NumberAnimation{duration: 350}
-                    }
+//                    Behavior on width{
+//                        NumberAnimation{duration: 350}
+//                    }
                 }
                 Image {
                     id: iconoSigno

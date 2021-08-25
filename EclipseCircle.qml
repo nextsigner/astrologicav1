@@ -55,7 +55,7 @@ Item {
         anchors.centerIn: parent
         color: 'red'//'transparent'
         antialiasing: true
-        Behavior on width{NumberAnimation{duration: 500; easing.type: Easing.InOutQuad}}
+        //Behavior on width{enabled: apps.enableFullAnimation;NumberAnimation{duration: 500; easing.type: Easing.InOutQuad}}
         Rectangle{
             id: xIconEclipse
             property bool selected: app.currentPlanetIndex===15
@@ -72,7 +72,7 @@ Item {
             onSelectedChanged:{
                 //app.uSon='asc_'+app.objSignsNames[r.isAsc]+'_1'
             }
-            Behavior on width{NumberAnimation{duration: 250;easing.type: Easing.InOutQuad}}
+            Behavior on width{enabled: apps.enableFullAnimation;NumberAnimation{duration: 250;easing.type: Easing.InOutQuad}}
             XEclipse{
                 id: anEclipse
                 anchors.centerIn: parent

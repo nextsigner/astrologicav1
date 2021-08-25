@@ -30,7 +30,8 @@ Rectangle {
             }
         }
     ]
-    Behavior on x{enabled: app.enableAn;NumberAnimation{duration: app.msDesDuration}}
+    Behavior on x{enabled: apps.enableFullAnimation;NumberAnimation{duration: app.msDesDuration}}
+
 
     Column{
         anchors.centerIn: parent
@@ -55,10 +56,19 @@ Rectangle {
     Timer{
         running: true
         repeat: false
-        interval: 5000
-        onTriggered: JS.getRD('https://github.com/nextsigner/nextsigner.github.io/raw/master/zool/panelremoto/main.qml', r)
-        //onTriggered: JS.getRD('file:////home/ns/nsp/uda/nextsigner.github.io/zool/panelremoto/main.qml', r)
+        interval: 3000
+        property string url
+        onTriggered: JS.getRD(url, r)
+        Component.onCompleted: {
+            if(unik.fileExist('/home/ns/nsp/uda/nextsigner.github.io/zool/panelremoto/main.qml')){
+                url='file:////home/ns/nsp/uda/nextsigner.github.io/zool/panelremoto/main.qml'
+                panelRemoto.state='show'
+            }else{
+                url='https://github.com/nextsigner/nextsigner.github.io/raw/master/zool/panelremoto/main.qml'
+            }
+        }
     }
+
     function setData(data, isData){
         if(isData){
             console.log('Host: '+data)

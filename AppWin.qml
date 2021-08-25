@@ -122,7 +122,7 @@ ApplicationWindow {
         sequence: 'Up'
         onActivated: {
             if(xSabianos.visible){
-                xSabianos.up()
+                xSabianos.toup()
                 return
             }
             if(panelFileLoader.state==='show'){
@@ -161,7 +161,7 @@ ApplicationWindow {
         sequence: 'Down'
         onActivated: {
             if(xSabianos.visible){
-                xSabianos.down()
+                xSabianos.todown()
                 return
             }
             if(panelFileLoader.state==='show'){
@@ -200,7 +200,7 @@ ApplicationWindow {
         sequence: 'Left'
         onActivated: {
             if(xSabianos.visible){
-                xSabianos.left()
+                xSabianos.toleft()
                 return
             }
         }
@@ -209,7 +209,7 @@ ApplicationWindow {
         sequence: 'Right'
         onActivated: {
             if(xSabianos.visible){
-                xSabianos.right()
+                xSabianos.toright()
                 return
             }
         }

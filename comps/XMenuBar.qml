@@ -34,6 +34,7 @@ MenuBar{
     }
     Menu {
         title: qsTr("&Opciones")
+        Action { text: qsTr("Activar todas las animaciones"); onTriggered: apps.enableFullAnimation=!apps.enableFullAnimation; checkable: true; checked: apps.enableFullAnimation}
         Action { text: qsTr("Actualizar Panel Remoto");onTriggered: JS.getRD('https://github.com/nextsigner/nextsigner.github.io/raw/master/zool/panelremoto/main.qml', panelRemoto)}
         Action { text: qsTr("Centellar Planetas"); onTriggered: apps.anColorXAs=!apps.anColorXAs; checkable: true; checked: apps.anColorXAs}
 

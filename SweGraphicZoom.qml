@@ -29,7 +29,7 @@ Item {
             }
         }
     ]
-    Behavior on x{enabled: app.enableAn;NumberAnimation{duration: 250}}
+    Behavior on x{enabled: apps.enableFullAnimation;NumberAnimation{duration: 250}}
     Rectangle{
         anchors.fill: r
         color: apps.enableBackgroundColor?apps.backgroundColor:'black'

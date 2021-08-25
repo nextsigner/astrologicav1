@@ -25,10 +25,10 @@ Rectangle {
         id: rowTit
         spacing: r.fs*0.25
         anchors.horizontalCenter: parent.horizontalCenter
-        XText {
+        Text {
             id: currentSign
             text: '<b>Simbología de los Sabianos</b> - <b>'+r.signos[r.numSign]+'</b>'
-            font.pixelSize: r.fs*2
+            font.pixelSize: r.fs
             anchors.verticalCenter: parent.verticalCenter
         }
         Item {
@@ -103,6 +103,35 @@ Rectangle {
         anchors.bottom: parent.bottom
         visible: false
     }
+    Text {
+        text: 'Presiona\nEscape\npara salir'
+        horizontalAlignment: Text.AlignHCenter
+        font.pixelSize: r.fs*0.25
+        anchors.left: parent.left
+        anchors.leftMargin: app.fs
+        anchors.top: parent.top
+        anchors.topMargin: app.fs*0.5
+    }
+    Rectangle{
+        width: app.fs
+        height: width
+        color: 'black'
+        anchors.right: parent.right
+        anchors.rightMargin: app.fs*0.5
+        anchors.top: parent.top
+        anchors.topMargin: app.fs*0.5
+        MouseArea{
+            anchors.fill: parent
+            onClicked: r.visible=false
+        }
+        Text {
+            text: 'X'
+            horizontalAlignment: Text.AlignHCenter
+            font.pixelSize: parent.width*0.6
+            color: 'white'
+            anchors.centerIn: parent
+        }
+    }
     Component.onCompleted: {
         if(Screen.width===1280&&Screen.height===720)r.factorZoomByRes=2.0
         if(Screen.width===1920&&Screen.height===1080)r.factorZoomByRes=1.5
@@ -125,7 +154,7 @@ Rectangle {
         }
         loadData()
     }
-    function down(){
+    function todown(){
         if(r.numDegree<30){
             r.numDegree++
         }else{
@@ -134,7 +163,7 @@ Rectangle {
         }
         loadData()
     }
-    function up(){
+    function toup(){
         if(r.numDegree>0){
             r.numDegree--
         }else{
@@ -143,7 +172,7 @@ Rectangle {
         }
         loadData()
     }
-    function left(){
+    function toleft(){
         if(r.currentInterpreter>0){
             r.currentInterpreter--
         }else{
@@ -162,7 +191,7 @@ Rectangle {
         }
         loadData()
     }
-    function right(){
+    function toright(){
         if(r.currentInterpreter<2){
             r.currentInterpreter++
         }else{
@@ -216,7 +245,7 @@ Rectangle {
                 //console.log('\n\n----------->>'+htmlPrevio)
             }
         }
-        console.log('Cantidad '+cp)
+        //console.log('Cantidad '+cp)
         let mapHtmlDegree=htmlPrevio.split('<p ')
         let dataFinal='<p '+mapHtmlDegree[r.currentInterpreter + 1]
 

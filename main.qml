@@ -62,7 +62,7 @@ AppWin {
 
     property var signos: ['Aries', 'Tauro', 'Géminis', 'Cáncer', 'Leo', 'Virgo', 'Libra', 'Escorpio', 'Sagitario', 'Capricornio', 'Acuario', 'Piscis']
     property var planetas: ['Sol', 'Luna', 'Mercurio', 'Venus', 'Marte', 'Júpiter', 'Saturno', 'Urano', 'Neptuno', 'Plutón', 'N.Norte', 'N.Sur', 'Quirón', 'Selena', 'Lilith']
-    property var planetasRes: ['sun', 'moon', 'mercury', 'venus', 'mars', 'jupiter', 'saturn', 'uranus', 'neptune', 'pluto', 'n', 's', 'hiron', 'selena', 'lilith', 'fortuna']
+    property var planetasRes: ['sun', 'moon', 'mercury', 'venus', 'mars', 'jupiter', 'saturn', 'uranus', 'neptune', 'pluto', 'n', 's', 'hiron', 'selena', 'lilith']
     property var objSignsNames: ['ari', 'tau', 'gem', 'cnc', 'leo', 'vir', 'lib', 'sco', 'sgr', 'cap', 'aqr', 'psc']
     property var signColors: ['red', '#FBE103', '#09F4E2', '#0D9FD6','red', '#FBE103', '#09F4E2', '#0D9FD6','red', '#FBE103', '#09F4E2', '#0D9FD6']
     property var meses: ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre']
@@ -119,6 +119,7 @@ AppWin {
         fileName:documentsPath+'/zool_'+Qt.platform.os+'.cfg'
         property string host: 'http://localhost'
         property bool newClosed: false
+        property bool enableFullAnimation: false
         property bool enableBackgroundColor: false
         property string backgroundColor: "black"
         property string fontFamily: "ArialMdm"
@@ -223,11 +224,15 @@ AppWin {
                 }
                 Item{
                     anchors.fill: parent
-                    PanelRemoto{id: panelRemoto; state: 'hide'}
+                    PanelRemoto{
+                        id: panelRemoto;
+                        state: 'show'
+                    }
                     //PanelZonaMes{id: panelZonaMes;}
                     PanelRsList{id: panelRsList}
                     PanelFileLoader{id: panelFileLoader}
                     PanelNewVNA{id: panelNewVNA}
+
                 }
             }
             Item{

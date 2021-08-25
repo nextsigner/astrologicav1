@@ -64,8 +64,8 @@ Item {
             state='centrado'
             tDesCentrado.restart()
         }
-        Behavior on anchors.horizontalCenterOffset{enabled: app.enableAn;NumberAnimation{id: na1; duration: 2500}}
-        Behavior on anchors.verticalCenterOffset{enabled: app.enableAn;NumberAnimation{id: na2; duration: 2500}}
+        Behavior on anchors.horizontalCenterOffset{enabled: apps.enableFullAnimation;NumberAnimation{id: na1; duration: 2500}}
+        Behavior on anchors.verticalCenterOffset{enabled: apps.enableFullAnimation;NumberAnimation{id: na2; duration: 2500}}
         state: 'descentrado'
         states: [
             State {
@@ -112,7 +112,7 @@ Item {
             anchors.centerIn: parent
             opacity: 0.0
            //visible: app.currentPlanetIndex >=0
-            Behavior on opacity{enabled: app.enableAn;NumberAnimation{duration: 2000}}
+            Behavior on opacity{enabled: apps.enableFullAnimation;NumberAnimation{duration: 2000}}
             Image {
                 id: img
                 source: app.currentPlanetIndex>=0?"./resources/imgs/planetas/"+app.planetasRes[app.currentPlanetIndex]+".svg":""

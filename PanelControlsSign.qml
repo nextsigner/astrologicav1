@@ -14,7 +14,7 @@ Rectangle {
     state: 'hide'
     property bool enableLoadSign: true
     property alias currentIndex: lv.currentIndex
-    Behavior on height{enabled: app.enableAn;NumberAnimation{duration:app.msDesDuration;easing.type: Easing.InOutQuad}}
+    Behavior on height{enabled: apps.enableFullAnimation;NumberAnimation{duration:app.msDesDuration;easing.type: Easing.InOutQuad}}
     states: [
         State {
             name: "show"
@@ -31,7 +31,7 @@ Rectangle {
             }
         }
     ]
-    Behavior on x{enabled: app.enableAn;NumberAnimation{duration: app.msDesDuration}}
+    Behavior on x{enabled: apps.enableFullAnimation;NumberAnimation{duration: app.msDesDuration}}
     onStateChanged: {
         if(state==='hide')return
         JS.raiseItem(r)
